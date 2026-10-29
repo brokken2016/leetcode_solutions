@@ -6,13 +6,9 @@ class Solution:
 
         while r > l:
             
-            if height[l] > height[r]:
-                lowest = height[r]
-            else:
-                lowest = height[l] 
+            if (r - l) * min(height[l], height[r]) > res:
+                res = (r - l) * min(height[l], height[r])
 
-            if (r - l) * lowest > res:
-                res = (r - l) * lowest
 
             if height[l] > height[r]:
                 r -= 1
@@ -21,5 +17,5 @@ class Solution:
             else:
                 r -= 1
                 l += 1
-                
+
         return res
